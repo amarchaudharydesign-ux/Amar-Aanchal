@@ -1,8 +1,12 @@
-# Amar ❤️ Aanchal — Accountant × Civil Engineer Special — FINAL
+# Amar ❤️ Aanchal — Fresh Romantic Date Site
 
-Navigation fixed.
+Fresh rebuild with stable direct navigation.
 
 Flow:
 YES → Accountant × Civil Engineer Special → Food → Activity / Skip → Temple → Date → Time → Final Plan → WhatsApp.
 
-The special page uses its own `special` ID and is no longer affected by numbered-screen indexing.
+Aanchal: Accountant 🧾
+Amar: Civil Engineer 🏗️
+WhatsApp confirmation: +91 8826169643
+
+IMPORTANT: Upload `index.html` from this folder to the root of your GitHub Pages repository.
