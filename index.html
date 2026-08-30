@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amar ❤️ Aanchal</title>
+<style>
+:root{--pink:#ff6f91;--dark:#cf4869;--soft:#ffe8ef;--text:#432831}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;color:var(--text);
+background:linear-gradient(145deg,#fff8f8,#ffedf2,#fffaf5)}
+button,input{font:inherit}.wrap{max-width:760px;margin:auto;padding:18px}
+.card{min-height:calc(100vh - 36px);display:flex;align-items:center;
+padding:28px 18px;background:#ffffffeb;border-radius:30px;
+box-shadow:0 20px 60px #662c3b18}.screen{display:none;width:100%;
+text-align:center;animation:in .35s ease}.screen.active{display:block!important}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.emoji{font-size:58px;display:block}.badge{display:inline-block;background:var(--soft);
+color:var(--dark);padding:8px 14px;border-radius:99px;font-size:13px;font-weight:bold}
+h1{font-size:clamp(40px,9vw,64px);line-height:1;letter-spacing:-2px}
+h2{font-size:clamp(28px,7vw,42px)}p{font-size:17px;line-height:1.6}
+.pink{color:var(--pink)}.btn{border:0;border-radius:99px;padding:14px 23px;margin:7px;
+font-weight:bold;cursor:pointer}.primary{background:var(--pink);color:white;
+box-shadow:0 10px 25px #ff6f9138}.secondary{background:white;color:var(--dark);
+border:1px solid #ffd0dc}.choice{position:relative;min-height:130px;
+display:flex;justify-content:center;align-items:center}.no{position:absolute}
+.progress{height:7px;background:#ffe4eb;border-radius:99px;max-width:450px;margin:0 auto 25px}
+.progress div{height:100%;background:var(--pink);border-radius:99px}
+.transition-box{font-size:80px;margin:20px auto;animation:bounce 1.2s infinite alternate}
+@keyframes bounce{to{transform:translateY(-10px) scale(1.04)}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:620px;margin:22px auto}
+.option{position:relative;min-height:100px;padding:12px 8px;border:2px solid #f1e0e6;
+background:white;border-radius:18px;cursor:pointer}.option.selected{border-color:var(--pink);background:#fff0f4}
+.icon{display:block;font-size:34px;margin-bottom:7px}.tick{display:none;position:absolute;right:7px;top:6px;
+width:21px;height:21px;line-height:21px;color:white;background:var(--pink);border-radius:50%;font-size:12px}
+.option.selected .tick{display:block}.custom{max-width:620px;margin:10px auto}
+.custom input{width:100%;padding:14px;border:1px solid #efccd6;border-radius:14px;outline:none}
+.counter{font-size:13px;color:#9a6874}.skip{border:0;background:none;color:#a0576c;text-decoration:underline;cursor:pointer}
+.info,.summary{max-width:540px;margin:18px auto;padding:16px;border-radius:20px;background:#fff6f8;border:1px solid #ffe0e7}
+.summary{text-align:left}.row{padding:9px 0;border-bottom:1px dashed #eccbd4}.row:last-child{border:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.chip{padding:6px 10px;border-radius:50px;
+background:#ffe4eb;color:#963850;font-size:12px;font-weight:bold}.calendar{max-width:510px;margin:20px auto}
+.calhead{display:flex;justify-content:space-between;align-items:center}.calhead button{width:40px;height:40px;
+border:0;border-radius:12px;background:#fff0f4;color:var(--dark);font-size:22px}.week,.days{display:grid;
+grid-template-columns:repeat(7,1fr);gap:6px}.week div{font-size:12px;font-weight:bold;color:#a77884}
+.day{min-height:44px;border:1px solid #f5dfe5;border-radius:12px;background:white;cursor:pointer}
+.day.selected{color:white;background:var(--pink);border-color:var(--pink)}.day.disabled{opacity:.25;cursor:not-allowed}
+.time input{width:min(380px,100%);padding:17px;border:2px solid #ffd1dc;border-radius:17px;font-size:22px;text-align:center}
+footer{margin-top:18px;color:#a67883;font-size:12px}
+.pro-card{display:flex;align-items:stretch;justify-content:center;gap:10px;max-width:650px;margin:22px auto}
+.pro-box{flex:1;background:white;border:2px solid #f1e0e6;border-radius:22px;padding:16px 10px;box-shadow:0 8px 25px rgba(80,30,45,.06)}
+.pro-box:first-child{border-color:#ffd0dc;background:#fff7f9}
+.pro-box:last-child{border-color:#d9d9f5;background:#fafaff}
+.pro-box strong{display:block;font-size:21px}.pro-box small{display:block;color:#a26a78;margin:4px 0 10px}
+.pro-box p{font-size:13px;line-height:1.45}.pro-icon{font-size:44px}
+.plus{align-self:center;font-size:28px;font-weight:900;color:#d55a76}
+.formula{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;max-width:650px;margin:18px auto;padding:14px;border-radius:18px;background:#fff0f4;font-weight:bold}
+.formula span{padding:7px 10px;border-radius:99px;background:white}.formula b{color:#d55a76}
+.calculation{max-width:520px;margin:15px auto;text-align:left;background:#fff;border:1px solid #ffe0e7;border-radius:18px;padding:10px 16px}
+.calculation div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed #eccbd4;font-size:14px}
+.calculation div:last-child{border:0}.calculation b{color:#cf4869}
+
+@media(max-width:540px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+
+<section class="screen active" id="s1">
+<span class="emoji">💌</span><span class="badge">URGENT QUESTION 🚨</span>
+<h1>Oye… <span class="pink">Aanchal</span> 😂❤️</h1>
+<p>Please answer carefully. This may affect your future snack supply. 😌</p>
+<h2>Would you survive a date with me? 😂❤️</h2>
+<p>Side effects may include: laughing, eating too much and blaming me for everything. 😂</p>
+<div class="choice"><button class="btn primary" onclick="show(2)">💕 YES, obviously!</button>
+<button class="btn secondary no" id="no">😏 No</button></div>
+<footer>Made by Amar after 47 minutes of overthinking. 😂</footer>
+</section>
+
+<section class="screen" id="s2">
+<span class="emoji">💕</span><span class="badge">SHE SAID YES! 🚨😂</span>
+<h2>WAIT… ACTUALLY?! 😂🥰</h2><div class="transition-box">💖🐧💖</div>
+<p>Okay madam, now let's spend your free time responsibly. 😂❤️</p>
+<button class="btn primary" onclick="show(99)">First, let's discuss the most important topic: FOOD 🍕 →</button>
+</section>
+
+
+<section class="screen" id="special">
+<div class="progress"><div style="width:18%"></div></div>
+<span class="emoji">📐⚖️</span>
+<span class="badge">SPECIAL CALCULATION</span>
+<h2>Accountant ❤️ Civil Engineer</h2>
+
+<div class="pro-card">
+  <div class="pro-box">
+    <div class="pro-icon">🧾</div>
+    <strong>Aanchal</strong>
+    <small>Accountant</small>
+    <p>Balances the books<br>Balances the budget<br>Balances everything…</p>
+  </div>
+
+  <div class="plus">+</div>
+
+  <div class="pro-box">
+    <div class="pro-icon">🏗️</div>
+    <strong>Amar</strong>
+    <small>Civil Engineer</small>
+    <p>Balances the structure<br>Checks the loads<br>Builds everything…</p>
+  </div>
+</div>
+
+<div class="formula">
+  <span>🧾 Accounts</span>
+  <b>+</b>
+  <span>🏗️ Engineering</span>
+  <b>=</b>
+  <span>❤️ Perfectly Balanced</span>
+</div>
+
+<div class="calculation">
+  <div>📊 Financial Balance <b>100%</b></div>
+  <div>🏗️ Structural Stability <b>100%</b></div>
+  <div>😂 Mutual Teasing <b>∞%</b></div>
+  <div>❤️ Compatibility <b>UNDER REVIEW…</b></div>
+</div>
+
+<p><strong>Engineering says:</strong> “She is the load-bearing member.” 😂<br>
+<strong>Accounting says:</strong> “He is a depreciating asset… but a cute one.” 😌</p>
+
+<button class="btn primary" onclick="show(3)">Approve this project ❤️ →</button>
+</section>
+
+<section class="screen" id="s3">
+<div class="progress"><div style="width:28%"></div></div><span class="emoji">🍴</span>
+<span class="badge">EMERGENCY FOOD MEETING 🍕</span><h2>What should we eat before we start fighting over the menu? 😂</h2>
+<p>You choose. I'll pretend I had no opinion anyway. 😌</p><div class="grid" id="foodGrid"></div>
+<div class="custom"><input id="foodCustom" placeholder="Any secret cravings? 👀"></div>
+<div class="counter" id="foodCount">0 selected</div>
+<button class="btn primary" onclick="show(4)">Decision made by the CEO →</button>
+</section>
+
+<section class="screen" id="s4">
+<span class="emoji">😋</span><span class="badge">Approved by the Date Department 😂</span>
+<h2>Good food = 73% of a successful date. I checked. 😂</h2><div class="transition-box">🍕🍦🥰</div>
+<p>Now… what are we doing after we finish eating everything? 😂🎯</p>
+<button class="btn primary" onclick="show(5)">Pick an activity →</button><br>
+<button class="skip" onclick="show(7)">Too much decision-making? 😭 Skip → Temple</button>
+</section>
+
+<section class="screen" id="s5">
+<div class="progress"><div style="width:45%"></div></div><span class="emoji">🎯</span>
+<span class="badge">OFFICIAL TIMEPASS DEPARTMENT 🎯</span><h2>How should we waste our time together? 😂</h2>
+<p>Pick something fun… or use the VIP Skip Pass. 😂</p><div class="grid" id="activityGrid"></div>
+<div class="custom"><input id="activityCustom" placeholder="Your dangerous idea goes here… 😂"></div>
+<div class="counter" id="activityCount">0 selected</div>
+<button class="btn primary" onclick="show(6)">Timepass approved →</button><br>
+<button class="skip" onclick="show(7)">Too much decision-making? 😭 Skip → Temple</button>
+</section>
+
+<section class="screen" id="s6">
+<span class="emoji">✨</span><span class="badge">Okay, you're actually good at this 😂</span><h2>Now… let's become peaceful citizens for 10 minutes. 🛕😂</h2>
+<div class="transition-box">🛕❤️</div><p>Because apparently we also need blessings for surviving each other. 😂🙏</p>
+<button class="btn primary" onclick="show(7)">Choose our temple →</button>
+</section>
+
+<section class="screen" id="s7">
+<div class="progress"><div style="width:60%"></div></div><span class="emoji">🛕</span>
+<span class="badge">THE HOLY DECISION 🛕😂</span><h2>Where are we going to pray for patience? 😂🙏</h2>
+<p>YOU HAVE THE POWER 😌. I'll just follow like a well-trained boyfriend. 😂</p><div class="grid" id="templeGrid"></div>
+<div class="info" id="templeInfo">Choose wisely. The relationship with the temple depends on it. 😂🙏</div>
+<button class="btn primary" id="templeNext" disabled onclick="show(8)">Temple selected →</button>
+</section>
+
+<section class="screen" id="s8">
+<div class="progress"><div style="width:76%"></div></div><span class="emoji">📅</span>
+<span class="badge">YOU HAVE THE POWER 😌</span><h2>Pick the day, Madam Calendar 📅😂</h2>
+<div class="calendar"><div class="calhead"><button onclick="month(-1)">‹</button>
+<strong id="month"></strong><button onclick="month(1)">›</button></div>
+<div class="week"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+<div class="days" id="days"></div></div>
+<div class="info" id="dateInfo">No date selected yet.</div>
+<button class="btn primary" id="dateNext" disabled onclick="show(9)">That's the day ❤️ →</button>
+</section>
+
+<section class="screen" id="s9">
+<div class="progress"><div style="width:88%"></div></div><span class="emoji">🕐</span>
+<span class="badge">YOU HAVE THE POWER 😌 again</span><h2>What time should Amar report for duty? 😂🕐</h2>
+<div class="time"><input type="time" id="time" onchange="timeChanged()"></div>
+<div class="info" id="timeInfo">Choose a time.</div>
+<button class="btn primary" id="timeNext" disabled onclick="show(10)">Show our plan →</button>
+</section>
+
+<section class="screen" id="s10">
+<span class="emoji">💌</span><span class="badge">FINAL AUDIT OF THE DATE 😂</span><h1>WAIT… WE ACTUALLY PLANNED THIS?! 😂❤️</h1>
+<div class="summary">
+<div class="row">📅 <strong>Date:</strong> <span id="sd"></span></div>
+<div class="row">🕐 <strong>Time:</strong> <span id="st"></span></div>
+<div class="row">🛕 <strong>Temple:</strong> <span id="stp"></span></div>
+<div class="row">🍴 <strong>Food:</strong><div class="chips" id="sf"></div></div>
+<div class="row">🎯 <strong>Activity:</strong><div class="chips" id="sa"></div></div>
+</div>
+<p>You picked the day, time, food and place.<br><strong>I'll handle the rest. Your only remaining job is to show up. 😂❤️</strong></p>
+<button class="btn primary" onclick="confirmDate()">📲 📲 Send this to Amar & make him panic</button>
+<p style="font-size:13px">WhatsApp will open with your choices filled in. Just tap Send. ❤️</p>
+</section>
+
+<section class="screen" id="s11">
+<span class="emoji">🥰</span><span class="badge">OFFICIALLY LOCKED! 🚨❤️</span><h1>IT'S A DATE! SOMEONE TELL THE INTERNET! 😂❤️</h1>
+<h2>Amar + Aanchal = Trouble 😂❤️</h2><div class="summary">
+<div class="row">📅 <strong>Date:</strong> <span id="fd"></span></div>
+<div class="row">🕐 <strong>Time:</strong> <span id="ft"></span></div>
+<div class="row">🛕 <strong>Temple:</strong> <span id="ftp"></span></div>
+<div class="row">🍴 <strong>Food:</strong><div class="chips" id="ff"></div></div>
+<div class="row">🎯 <strong>Activity:</strong><div class="chips" id="fa"></div></div>
+</div>
+<p>You choose the day. 😂<br>You choose the time. 😂<br>I'll pretend I have everything under control. 😎</p>
+<h2>See you soon, Aanchal! Don't cancel. I already told my imaginary friends. 😂❤️</h2><footer>— Amar, your unpaid date planner 😂❤️</footer>
+</section>
+
+</div></div>
+
+<script>
+const FOOD=[["🍕","Pizza"],["🍔","Burger"],["🍝","Pasta"],["🍜","Chinese"],["🍛","North Indian"],["🥗","South Indian"],["🍣","Sushi"],["🌮","Tacos"],["🍦","Dessert"],["☕","Café"]];
+const ACT=[["🎬","Movie"],["🎳","Bowling"],["🎨","Art"],["🧺","Picnic"],["🎮","Games"],["🚶","Walk / Explore"],["🛍️","Shopping"],["☕","Café Hopping"],["📸","Photography"],["🎡","Fun / Adventure"]];
+const TEMP=[["🛕","Chhatarpur Temple"],["🪷","Kalkaji Mandir"],["🛕","Akshardham Temple"],["🛕","Birla Mandir"],["🦚","ISKCON Temple"]];
+let foods=[],acts=[],temple="",date=null,view=new Date();
+const today=new Date();today.setHours(0,0,0,0);
+const screens=[...document.querySelectorAll(".screen")];
+
+function show(n){
+    document.querySelectorAll(".screen").forEach(function(x){
+        x.classList.remove("active");
+    });
+
+    var target;
+
+    if(n === 99){
+        target = document.getElementById("special");
+    }else{
+        target = document.getElementById("screen" + n);
+    }
+
+    if(!target){
+        console.error("Navigation target missing:", n);
+        return;
+    }
+
+    target.classList.add("active");
+
+    if(n === 3) build("foodGrid", FOOD, foods, "foodCount");
+    if(n === 5) build("activityGrid", ACT, acts, "activityCount");
+    if(n === 7) buildTemple();
+    if(n === 8) renderCalendar();
+    if(n === 10) summary();
+    if(n === 11) finalScreen();
+}
+
+function build(id,data,arr,counter){
+ const box=document.getElementById(id);box.innerHTML="";
+ data.forEach(([icon,name])=>{
+  const b=document.createElement("button");
+  b.className="option"+(arr.includes(name)?" selected":"");
+  b.innerHTML=`<span class="icon">${icon}</span><strong>${name}</strong><span class="tick">✓</span>`;
+  b.onclick=()=>{
+   const i=arr.indexOf(name);
+   i<0?arr.push(name):arr.splice(i,1);
+   b.classList.toggle("selected");
+   document.getElementById(counter).textContent=arr.length+" selected";
+  };
+  box.appendChild(b);
+ });
+}
+
+function buildTemple(){
+ const box=document.getElementById("templeGrid");box.innerHTML="";
+ TEMP.forEach(([icon,name])=>{
+  const b=document.createElement("button");
+  b.className="option"+(temple===name?" selected":"");
+  b.innerHTML=`<span class="icon">${icon}</span><strong>${name}</strong><span class="tick">✓</span>`;
+  b.onclick=()=>{
+   temple=name;
+   document.querySelectorAll("#templeGrid .option").forEach(x=>x.classList.remove("selected"));
+   b.classList.add("selected");
+   document.getElementById("templeInfo").textContent="Selected: "+name+" 🙏❤️";
+   document.getElementById("templeNext").disabled=false;
+  };
+  box.appendChild(b);
+ });
+}
+
+function month(n){view.setMonth(view.getMonth()+n);renderCalendar()}
+
+function renderCalendar(){
+ const y=view.getFullYear(),m=view.getMonth();
+ document.getElementById("month").textContent=view.toLocaleString(undefined,{month:"long",year:"numeric"});
+ const first=new Date(y,m,1).getDay(),num=new Date(y,m+1,0).getDate();
+ const box=document.getElementById("days");box.innerHTML="";
+ for(let i=0;i<first;i++)box.appendChild(document.createElement("div"));
+ for(let n=1;n<=num;n++){
+  const b=document.createElement("button");b.className="day";b.textContent=n;
+  const d=new Date(y,m,n);d.setHours(0,0,0,0);
+  if(d<today){b.disabled=true;b.classList.add("disabled")}
+  if(date&&date.getTime()===d.getTime())b.classList.add("selected");
+  b.onclick=()=>{date=d;document.getElementById("dateNext").disabled=false;
+   document.getElementById("dateInfo").textContent="You picked: "+formatDate(date)+" ❤️";renderCalendar()};
+  box.appendChild(b);
+ }
+}
+
+function formatDate(d){return d.toLocaleDateString(undefined,{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+function formatTime(v){
+ if(!v)return"";const [h,m]=v.split(":").map(Number),d=new Date();d.setHours(h,m);
+ return d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
+}
+function timeChanged(){
+ const v=document.getElementById("time").value;
+ document.getElementById("timeNext").disabled=!v;
+ if(v)document.getElementById("timeInfo").textContent=formatTime(v)+" it is. 🥰";
+}
+function custom(id,arr){
+ const x=document.getElementById(id).value.trim();
+ return x?[...arr,x]:[...arr];
+}
+function chips(id,a){
+ document.getElementById(id).innerHTML=a.length?a.map(x=>`<span class="chip">${x}</span>`).join(""):'<span class="chip">No preference</span>';
+}
+function summary(){
+ sd.textContent=formatDate(date);st.textContent=formatTime(time.value);stp.textContent=temple+", Delhi";
+ chips("sf",custom("foodCustom",foods));chips("sa",custom("activityCustom",acts));
+}
+function finalScreen(){
+ fd.textContent=formatDate(date);ft.textContent=formatTime(time.value);ftp.textContent=temple+", Delhi";
+ chips("ff",custom("foodCustom",foods));chips("fa",custom("activityCustom",acts));
+}
+function confirmDate(){
+ const f=custom("foodCustom",foods),a=custom("activityCustom",acts);
+ const msg=`🚨 PROJECT APPROVAL NOTICE 🚨%0A%0AHi Amar! 😂❤️%0A%0AI said YES! ❤️%0A%0A📅 Date: ${encodeURIComponent(formatDate(date))}%0A🕐 Time: ${encodeURIComponent(formatTime(time.value))}%0A🛕 Temple: ${encodeURIComponent(temple)}, Delhi%0A🍴 Food: ${encodeURIComponent(f.join(", ")||"No preference")} %0A🎯 Activity: ${encodeURIComponent(a.join(", ")||"Skipped")}%0A%0AIT'S A DATE! SOMEONE TELL THE INTERNET! 😂❤️`;
+ window.open("https://wa.me/918826169643?text="+msg,"_blank");show(11);
+}
+
+const no=document.getElementById("no"),area=document.querySelector(".choice");
+function runAway(){
+ const r=area.getBoundingClientRect(),b=no.getBoundingClientRect();
+ no.style.left=Math.max(5,Math.random()*(r.width-b.width-5))+"px";
+ no.style.top=Math.max(5,Math.random()*(r.height-b.height-5))+"px";
+}
+no.addEventListener("mouseenter",runAway);
+no.addEventListener("touchstart",e=>{e.preventDefault();runAway()},{passive:false});
+no.addEventListener("click",e=>{e.preventDefault();runAway()});
+
+renderCalendar();
+</script>
+</body>
+</html>
